@@ -1,0 +1,11 @@
+{
+  "name": "fourward-project",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix app run dev",
+    "start": "npm --prefix app start",
+    "test": "npm --prefix app test",
+    "build": "npm --prefix app run build",
+    "check": "npm --prefix app run check"
+  }
+}

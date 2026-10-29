@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="A friendly rivalry, wherever you are. Create a room, invite a friend, and play Fourward — a live two-player four-in-a-row game.">
+  <title>Fourward — Good company. Great competition.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%23262e39'/%3E%3Ccircle cx='23' cy='23' r='9' fill='%23e37661'/%3E%3Ccircle cx='43' cy='23' r='9' fill='%23f6f3eb'/%3E%3Ccircle cx='23' cy='43' r='9' fill='%23f6f3eb'/%3E%3Ccircle cx='43' cy='43' r='9' fill='%232f7772'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/client.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Fourward home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>fourward<span class="brand-dot">.</span></span></a>
+      <div class="header-note"><span class="little-star" aria-hidden="true">✳</span> MADE TOGETHER. PLAYED APART.</div>
+      <button class="text-button" id="rules-open" type="button">How to play <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> THE TWO-PLAYER GAME CLUB</div><h1 id="page-title">Good company. <br> <span>Great competition.</span></h1></div>
+        <div class="hero-aside"><span class="orbit" aria-hidden="true">4<span>↗</span></span><p>Different places. Same table. <br> Four in a row brings you together.</p></div>
+      </section>
+
+      <section class="play-layout" aria-label="Fourward game">
+        <aside class="sidebar">
+          <section class="setup-panel" id="setup-panel" aria-labelledby="setup-title">
+            <div class="section-label"><span>01 / THE INVITATION</span><span class="tiny-dot" aria-hidden="true"></span></div>
+            <h2 id="setup-title">Bring your <br> favorite rival.</h2>
+            <p class="panel-description">One room. Two players. <br> A little friendly competition.</p>
+            <form id="room-form">
+              <label for="player-name">Your name</label>
+              <input id="player-name" name="name" type="text" maxlength="20" autocomplete="nickname" placeholder="What should we call you?" required>
+              <button class="button button-primary" id="create-room" type="submit"><span>Create a room</span><span aria-hidden="true">↗</span></button>
+              <div class="form-divider"><span></span><p>already invited?</p><span></span></div>
+              <label for="room-code-input">Room code</label>
+              <div class="join-row"><input id="room-code-input" name="room" type="text" maxlength="6" minlength="6" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCDEF" aria-label="Six-character room code"><button class="button button-secondary" id="join-room" type="button">Join <span aria-hidden="true">→</span></button></div>
+            </form>
+            <p class="privacy-note"><span aria-hidden="true">↳</span> No account. Just a name and a game.</p>
+          </section>
+
+          <section class="match-panel" id="match-panel" hidden aria-labelledby="room-title">
+            <div class="section-label"><span>01 / YOUR ROOM</span><button class="quiet-button" id="leave-room" type="button">Leave ↗</button></div>
+            <h2 id="room-title">A table <br> for two.</h2>
+            <p class="panel-description" id="invite-description">Send this code to your friend. <br> They can join from any device.</p>
+            <button class="room-code-button" id="copy-code" type="button" aria-label="Copy room code"><span id="room-code-display">------</span><span class="copy-icon" aria-hidden="true">▢</span></button>
+            <button class="button button-primary" id="copy-link" type="button"><span>Copy invite link</span><span aria-hidden="true">↗</span></button>
+            <p class="share-note" id="share-note" aria-live="polite">Anyone with this code can take the open seat.</p>
+            <div class="match-meta"><div><span>Round</span><strong id="round-value">01</strong></div><div><span>Moves</span><strong id="moves-value">00</strong></div><div><span>You play</span><strong id="you-value">01</strong></div></div>
+            <div class="round-action" id="round-action" hidden><button class="button button-secondary" id="rematch" type="button"><span>Play another round</span><span aria-hidden="true">↻</span></button><p id="rematch-note" class="share-note" aria-live="polite">A rematch starts when both players agree.</p></div>
+            <div class="connection-detail"><span class="connection-dot" id="connection-dot"></span><span id="connection-text">Connecting to your room…</span><button class="quiet-button" id="retry-connection" hidden type="button">Retry</button></div>
+          </section>
+          <div class="error-message" id="error-message" role="alert" hidden></div>
+          <div class="sidebar-bottom"><span class="small-asterisk" aria-hidden="true">✳</span><p>A good game is never <br> too far away.</p><span class="edition">NO. 004</span></div>
+        </aside>
+
+        <section class="arena" aria-labelledby="game-status">
+          <div class="arena-heading"><div><div class="section-label">02 / THE TABLE</div><h2 id="game-status" aria-live="polite" aria-atomic="true">Your next move starts here.</h2><p id="game-substatus">Create a room. Invite a friend. Make a connection.</p></div><span class="status-pill" id="status-pill"><span class="status-dot"></span><span id="status-pill-text">READY WHEN YOU ARE</span></span></div>
+          <div class="scoreboard" aria-label="Players and match score">
+            <div class="player-card player-one" id="player-one-card"><span class="player-piece" aria-hidden="true">1</span><div class="player-details"><span class="player-label" id="player-one-label">PLAYER ONE</span><strong id="player-one-name">Your side</strong><span class="player-presence" id="player-one-presence">The first connection</span></div><div class="player-score"><strong id="score-one">0</strong><span>WINS</span></div></div>
+            <span class="versus" aria-hidden="true">vs</span>
+            <div class="player-card player-two" id="player-two-card"><span class="player-piece" aria-hidden="true">2</span><div class="player-details"><span class="player-label" id="player-two-label">PLAYER TWO</span><strong id="player-two-name">A worthy rival</strong><span class="player-presence" id="player-two-presence">The other half</span></div><div class="player-score"><strong id="score-two">0</strong><span>WINS</span></div></div>
+          </div>
+
+          <div class="board-area">
+            <div class="column-controls" id="column-controls" aria-label="Choose a column"></div>
+            <div class="board" id="board" role="group" aria-label="Four-in-a-row board: 6 rows and 7 columns"></div>
+            <div class="board-feet" aria-hidden="true"><span></span><span></span></div>
+          </div>
+          <div class="board-caption"><p id="move-caption"><span aria-hidden="true">↳</span> A preview of your next friendly rivalry.</p><span class="keyboard-hint" id="keyboard-hint"><kbd>1</kbd>–<kbd>7</kbd> to drop</span></div>
+        </section>
+      </section>
+
+      <section class="quick-rules" aria-label="The short version of the rules"><div class="rules-intro"><span class="section-label">THE SHORT VERSION</span><h2>Simple rules. <br> Endless rematches.</h2></div><div class="rule"><span class="rule-number">01</span><div><h3>Pick a column.</h3><p>Take turns dropping a disc. <br> Gravity does the rest.</p></div></div><div class="rule"><span class="rule-number">02</span><div><h3>Find your four.</h3><p>Connect horizontally, vertically, <br> or diagonally to win.</p></div></div><div class="rule"><span class="rule-number">03</span><div><h3>Run it back.</h3><p>Full board? It’s a draw. <br> Another round is always an option.</p></div></div></section>
+    </main>
+
+    <footer class="site-footer"><span class="footer-brand">fourward.</span><span>Built by Yitong Wu <span class="footer-separator">/</span> A little closer, one move at a time.</span><a href="https://github.com/aryawuyitong/fourward-multiplayer" target="_blank" rel="noopener noreferrer">View the project ↗</a></footer>
+  </div>
+
+  <dialog id="rules-dialog" aria-labelledby="rules-title"><div class="dialog-top"><span class="section-label">THE FOURWARD FIELD GUIDE</span><button class="dialog-close" type="button" data-close="rules-dialog" aria-label="Close rules">×</button></div><h2 id="rules-title">Four is the <br> magic number.</h2><ol class="full-rules"><li>Create a room and share its six-character code or invite link. A second player joins from their own device.</li><li>Player 1 takes the first turn. On your turn, choose one of seven columns. Your disc falls into its lowest empty space.</li><li>The first player to connect four discs horizontally, vertically, or diagonally wins. A full board with no winner is a draw.</li><li>You cannot use a full column, play twice in a row, or move after a round ends. The server checks every move.</li><li>Both players choose “Play another round” for a rematch. The starting player alternates, and your match score stays.</li></ol><div class="rules-note"><strong>Stepped away?</strong><p>Refresh this same tab to reconnect. Play pauses while either player is offline. Your seat stays reserved; an inactive room expires after 24 hours. Leaving closes the room.</p></div><button class="button button-primary" type="button" data-close="rules-dialog"><span>Let’s play</span><span aria-hidden="true">↗</span></button></dialog>
+  <dialog id="leave-dialog" aria-labelledby="leave-title"><div class="dialog-top"><span class="section-label">LEAVING SO SOON?</span><button class="dialog-close" type="button" data-close="leave-dialog" aria-label="Keep playing">×</button></div><h2 id="leave-title">Call it <br> a good game?</h2><p class="panel-description">Leaving closes this room for both players. You can create a new room whenever you’re ready.</p><div class="dialog-actions"><button class="button button-secondary" type="button" data-close="leave-dialog">Keep playing</button><button class="button button-primary" id="confirm-leave" type="button">Leave room ↗</button></div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>
