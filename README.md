@@ -1,5 +1,7 @@
 # Fourward
 
+[![Verify Fourward](https://github.com/aryawuyitong/fourward-multiplayer/actions/workflows/ci.yml/badge.svg)](https://github.com/aryawuyitong/fourward-multiplayer/actions/workflows/ci.yml)
+
 **A friendly rivalry, from anywhere.** A two-player, server-authoritative four-in-a-row game by **Yitong Wu**.
 
 [Open the public demo](https://fourward-yitong-wu.bradley9900.chatgpt.site) · [Testing & evidence](docs/TESTING.md) · [Project submission](docs/SUBMISSION.md)

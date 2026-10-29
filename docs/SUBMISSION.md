@@ -5,7 +5,7 @@
 **Live demo:** https://fourward-yitong-wu.bradley9900.chatgpt.site  
 **Source:** https://github.com/aryawuyitong/fourward-multiplayer
 
-> Before submitting: confirm deployment and the final test record, complete the physical-device checklist, and replace pending evidence with observed results.
+> Deployment, automated checks, public API checks, and independent browser-session play are verified in the testing report. Before submitting, complete the physical-device checklist and personalize the reflection.
 
 ## Handshake submission fields
 

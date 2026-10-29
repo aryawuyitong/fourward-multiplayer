@@ -37,7 +37,7 @@ GitHub Actions installs lockfile dependencies and runs the complete test/build/v
 | Local automated tests | **40 passed, 0 failed, 0 skipped**, `npm run check`, Node.js 25.8.1 on macOS, October 29, 2026 |
 | Worker bundle build | **Passed**; shared service and embedded static assets bundled as ESM |
 | Artifact validation | **Passed**; built module imports and exports `default.fetch` |
-| GitHub Actions run | Pending upload and remote run |
+| GitHub Actions run | **Passed** on Ubuntu / Node.js 24: dependency installation and `npm run check`; [run #1](https://github.com/aryawuyitong/fourward-multiplayer/actions/runs/40970166871), commit `4a21c74` |
 | Public deployment health and API | **Passed**; version 2 published; live smoke script passed 50 requests, then closed its test room |
 
 ## Browser verification
